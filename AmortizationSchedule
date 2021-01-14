@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <math.h>
+struct Point
+{
+    float Balance,principal ,interest,x ;
+};
+int main() {
+    float loan=0;
+    float interestRate=0;
+    float numPay=0;
+    printf("Enter amount of loan : $");
+    scanf("%f",&loan);
+    printf("Enter Interest rate per year : %%");
+    scanf("%f",&interestRate);
+    printf("Enter number of payments : ");
+    scanf("%f",&numPay);
+    float r = interestRate/1200;
+    float B =loan;
+    float n = numPay;
+    float pe = (1 + r);
+    float pow = powf(pe,n);
+    float monthlypay = B*((r*pow)/(pow-1));
+    printf("Monthly Payment should be"" %.2f\n",monthlypay);
+    printf("=========================AMORTIZATION SCHEDULE======================\n");
+    printf("#\t\tPayment\t\tPrincipal\t\tInterest\t\tBalance\n");
+    int count=0;
+    struct Point p1 = {.Balance = 0, .principal = 1, .interest = 2};
+    struct Point arr[100];
+    float prin=0;
+    float intr=0;
+    float bal = loan;
+    int i =0;
+    while (count <n){
+        arr[i].x = monthlypay;
+        prin = monthlypay-(bal * r);
+        p1.principal = prin;
+        bal -= prin;
+        p1.Balance = bal;
+        intr =monthlypay - prin;
+        p1.interest= intr;
+        count++;
+        i++;
+        printf("%d",count);
+        printf("\t\t%.2f",monthlypay);
+        printf("\t\t%.2f",p1.principal);
+        printf("\t\t\t%.2f", p1.interest);
+        printf("\t\t\t%.2f",p1.Balance);
+        printf("\n");
+    }
+    return 0;
+}
