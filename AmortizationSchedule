@@ -45,7 +45,7 @@ int main() {
         printf("\t\t%.2f",p1.principal);
         printf("\t\t\t%.2f", p1.interest);
         printf("\t\t\t%.2f",p1.Balance);
-        printf("\n");
+        printf("\n"); 
     }
     return 0;
 }
