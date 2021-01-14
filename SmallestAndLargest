@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char word[20];
+    char small[20];
+    char large[20];
+    int count =0;
+    while (1) {
+        printf("Enter a word:");
+        scanf("%s", word);
+        if(count == 0){
+            strcpy(small,word);
+            strcpy(large,word);
+        } else {
+            if(strcmp(word,small)<0){
+                strcpy(small,word);
+            }
+            if(strcmp(word,large)>0){
+                strcpy(large,word);
+            }
+        }
+        if(strlen(word)==4){
+            break;
+        }
+        count++;
+    }
+    printf("smallest word: %s\n",small);
+    printf("largest word: %s\n",large);
+    return 0;
+}
