@@ -1,0 +1,16 @@
+#include <stdio.h>
+int main() {
+    int input[]={3,2,5,4,1};
+    int result;
+    int index=0;
+    int tempmax= input[0];
+    int lenght = sizeof(input)/ sizeof(input[0]);
+    for (index;index<lenght;index++){
+        if(input[index]>tempmax){
+            tempmax =input[index];
+            result=tempmax;
+        }
+    }
+    printf("the max is %d",result);
+    return 0;
+}
